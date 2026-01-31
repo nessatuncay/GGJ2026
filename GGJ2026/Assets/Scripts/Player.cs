@@ -30,6 +30,16 @@ public class Player : MonoBehaviour
         {
             audienceMood.decreaseMood();
         }
+
+        CheckTurnEndCondition();
+    }
+
+    public void OnPlayerTimeLost()
+    {
+        if (!playerTurn) return;
+        playerTurn = false;
+        audienceMood.decreaseMood();
+        CheckTurnEndCondition();
     }
 
     void CheckTurnEndCondition()
