@@ -754,6 +754,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420707819}
   m_CullTransparentMesh: 1
+--- !u!1 &1655613526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655613528}
+  m_Layer: 0
+  m_Name: PlayerDeck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1655613528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655613526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 412.31137, y: 171.69011, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763611082
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +952,6 @@ GameObject:
   - component: {fileID: 1949858745}
   - component: {fileID: 1949858744}
   - component: {fileID: 1949858743}
-  - component: {fileID: 1949858747}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -1012,31 +1042,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1949858747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949858742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a44dbb0f37c0448b0c18f6749c9b82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DisplayCard
-  displayCard:
-  - id: 1
-    cardName: 
-    cardDescription: 
-    cardType: 
-  displayId: 0
-  Id: 0
-  cardName: 
-  cardDescription: 
-  cardType: 
-  nameText: {fileID: 487637714}
-  descriptionText: {fileID: 1074558355}
-  typeText: {fileID: 582605233}
 --- !u!1 &2027577234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1051,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027577236}
-  - component: {fileID: 2027577235}
   m_Layer: 0
   m_Name: CardDateBase
   m_TagString: Untagged
@@ -1054,18 +1058,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2027577235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027577234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e3d71d7e0675a47820fee9b7483576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardsDataBase
 --- !u!4 &2027577236
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,3 +1081,4 @@ SceneRoots:
   - {fileID: 1921239166}
   - {fileID: 1949858746}
   - {fileID: 2027577236}
+  - {fileID: 1655613528}
