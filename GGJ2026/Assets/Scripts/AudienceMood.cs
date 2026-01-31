@@ -1,16 +1,37 @@
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudienceMood : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    int maxMood = 3;
+    int startMood = 1;
+    int currentMood;
+
+    Slider moodSlider;
+
+    void gameStart()
     {
-        
+        currentMood = startMood;
+        moodSlider.maxValue = maxMood;
+        moodSlider.value = currentMood;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void increaseMood()
     {
-        
+        currentMood = Mathf.Clamp(currentMood + 1, 0, maxMood);
+        moodSlider.value = currentMood;
     }
+
+    public void decreaseMood()
+    {
+        currentMood = Mathf.Clamp(currentMood - 1, 0, maxMood);
+        moodSlider.value = currentMood;
+    }
+
+        
+    
+
+
 }
