@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool playerTurn = false;
     
 
-    public void startPlayerTurn(ActType enemyAct)
+    public void StartPlayerTurn(ActType enemyAct)
     {
         currentEnemyAct = enemyAct;
         playerTurn = true;

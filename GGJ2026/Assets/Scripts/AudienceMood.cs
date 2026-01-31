@@ -11,7 +11,7 @@ public class AudienceMood : MonoBehaviour
 
     Slider moodSlider;
 
-    void gameStart()
+    void GameStart()
     {
         currentMood = startMood;
         moodSlider.maxValue = maxMood;
