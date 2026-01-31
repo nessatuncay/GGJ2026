@@ -5,8 +5,8 @@ public class Player : MonoBehaviour
     public AudienceMood audienceMood;
     public PlayerAnimator playerAnimator;
 
-    private ActType currentEnemyAct;
-    private bool playerTurn = false;
+    public ActType currentEnemyAct;
+    public bool playerTurn = false;
     
 
     public void startPlayerTurn(ActType enemyAct)

@@ -1,46 +1,80 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
+
 {
-    public int enemyDamage = 1;
 
-    //public int enemyType;
+    //----------------------------------------------------
+    //connect to enum ActType dance and singing and acting
+    public ActType currentAct;
 
-    public Sprite[] enemyPoses;
+    //connect to enum MatchState
+    public MatchState EndMatch;
 
+    //connect to class player
+    public Player player;
+
+    //----------------------------------------------------
+
+
+
+    //each different sprite that will be randomazied 
+
+    //dancing
+    public Sprite dancingSprite;
+
+    //singing
+    public Sprite singingSprite;
+
+    //acting
+    public Sprite actingSprite;
+
+    //Sprite Randerer
     public SpriteRenderer spriteRenderer;
 
+    //-----------------------------------------------------
 
-    protected int currentPoseIndex = -1;
 
-    protected virtual void Start()
-
+    public virtual void Start()
     {
         StartMatch();
     }
 
-    protected void StartMatch()
+    public void StartMatch()
     {
-        ChooseRandomPose();
+        ChooseRandomAct();
+        ApplyActSprite();
     }
 
-
-    protected void ChooseRandomPose()
+    public void ChooseRandomAct()
     {
-        int newPose;
+        currentAct = (ActType)Random.Range(
+            0,
+            System.Enum.GetValues(typeof(ActType)).Length
+        );
+    }
 
-        do
+    public void ApplyActSprite()
+    {
+        switch (currentAct)
         {
-            newPose = Random.Range(0, enemyPoses.Length);
+            case ActType.Dancing:
+                spriteRenderer.sprite = dancingSprite;
+                break;
+
+            case ActType.Singing:
+                spriteRenderer.sprite = singingSprite;
+                break;
+
+            case ActType.Acting:
+                spriteRenderer.sprite = actingSprite;
+                break;
         }
-        while (newPose == currentPoseIndex && enemyPoses.Length > 1);
-
-        currentPoseIndex = newPose;
-        spriteRenderer.sprite = enemyPoses[currentPoseIndex];
     }
-
-
 }
+
+
 
 
 
