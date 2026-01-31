@@ -15,7 +15,36 @@ public class Player : MonoBehaviour
         playerTurn = true;
     }
 
+    public void OnCardChosen(ActType chosenAct)
+    {
+        if (!playerTurn) return;
+        playerTurn = false;
 
+        playerAnimator.PlayerActionAnimator(chosenAct);
+
+        if (chosenAct == currentEnemyAct)
+        {
+            audienceMood.increaseMood();
+        }
+        else
+        {
+            audienceMood.decreaseMood();
+        }
+    }
+
+    void CheckTurnEndCondition()
+    {
+        if (audienceMood.currentMood == 0)
+        {
+            Debug.Log("LOSE");
+            Time.timeScale = 0f;
+        }
+        else if (audienceMood.currentMood == 3)
+        {
+            Debug.Log("WIN");
+            Time.timeScale = 0f;
+        }
+    }
 
 
 
