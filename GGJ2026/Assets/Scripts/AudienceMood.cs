@@ -7,7 +7,7 @@ public class AudienceMood : MonoBehaviour
     
     int maxMood = 3;
     int startMood = 1;
-    int currentMood;
+    public int currentMood;
 
     Slider moodSlider;
 
