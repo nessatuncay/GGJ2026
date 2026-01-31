@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
     public AudienceMood audienceMood;
     public PlayerAnimator playerAnimator;
     public Enemy enemy;
+    public LevelManager levelManager;
 
     public bool playerTurn = false;
     
@@ -53,6 +55,10 @@ public class Player : MonoBehaviour
         {
             Debug.Log("WIN");
             Time.timeScale = 0f;
+        }
+        else
+        {
+            levelManager.Update();
         }
     }
 

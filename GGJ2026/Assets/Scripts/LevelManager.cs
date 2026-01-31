@@ -1,28 +1,53 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
     public int maxLevel = 3;
     public int currentLevel = 1;
 
-    public bool levelComplete = false;
+    public bool transitioning = false;
 
     public AudienceMood audienceMood;
 
-    void Update()
+    public void Update()
     {
-        if (levelComplete) return;
+        if (transitioning) return;
 
         if (audienceMood.currentMood == 3)
         {
-            levelComplete = true;
-            GoToNextLevel();
+            StartCoroutine(LevelTransition());
         }
     }
 
-    void GoToNextLevel()
+    public IEnumerator LevelTransition()
     {
+        transitioning = true;
 
+        Debug.Log("Level " + currentLevel + " complete!");
+
+        if (currentLevel >= maxLevel)
+        {
+            WinGame();
+            yield break;
+        }
+
+        currentLevel++;
+        SetupNextLevel();
+        transitioning = false;
+    }
+
+    void SetupNextLevel()
+    {
+        audienceMood.currentMood = audienceMood.startMood;
+        audienceMood.moodSlider.value = audienceMood.currentMood;
+        Debug.Log("Starting Level " + currentLevel);
+    }
+
+    void WinGame()
+    {
+        Debug.Log("ALL LEVELS COMPLETE — YOU WIN!");
+        Time.timeScale = 0f;
     }
 }
