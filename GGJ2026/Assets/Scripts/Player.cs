@@ -4,14 +4,14 @@ public class Player : MonoBehaviour
 {
     public AudienceMood audienceMood;
     public PlayerAnimator playerAnimator;
+    public Enemy enemy;
 
-    public ActType currentEnemyAct;
     public bool playerTurn = false;
     
 
     public void StartPlayerTurn(ActType enemyAct)
     {
-        currentEnemyAct = enemyAct;
+        enemy.currentEnemyAct = enemyAct;
         playerTurn = true;
     }
 
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
         playerAnimator.PlayerActionAnimator(chosenAct);
 
-        if (chosenAct == currentEnemyAct)
+        if (chosenAct == enemy.currentEnemyAct)
         {
             audienceMood.increaseMood();
         }

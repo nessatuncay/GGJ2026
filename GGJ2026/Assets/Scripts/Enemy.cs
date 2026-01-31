@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 
     //----------------------------------------------------
     //connect to enum ActType dance and singing and acting
-    public ActType currentAct;
+    public ActType currentEnemyAct;
 
     //connect to enum MatchState
     public MatchState EndMatch;
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     public void ChooseRandomAct()
     {
-        currentAct = (ActType)Random.Range(
+        currentEnemyAct = (ActType)Random.Range(
             0,
             System.Enum.GetValues(typeof(ActType)).Length
         );
