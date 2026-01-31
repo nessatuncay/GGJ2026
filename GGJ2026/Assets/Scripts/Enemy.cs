@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     public void ApplyActSprite()
     {
-        switch (currentAct)
+        switch (currentEnemyAct)
         {
             case ActType.Dancing:
                 spriteRenderer.sprite = dancingSprite;
