@@ -4,49 +4,42 @@ public class Enemy : MonoBehaviour
 {
     public int enemyDamage = 1;
 
-    public int enemyType;
+    //public int enemyType;
 
-    public Sprite[] enemyPoses =
-        {
-                "poseOne.png",
-                "poseTwo.png",
-                "poseThree.png"
-            };
+    public Sprite[] enemyPoses;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public SpriteRenderer spriteRenderer;
+
+
+    protected int currentPoseIndex = -1;
+
+    protected virtual void Start()
+
     {
+        StartMatch();
+    }
 
-
-        //enemy and player win and lose condition
-        Enemy enemyOne = GetComponent<Enemy>();
-       
-
-        if (!playerLose)
-        {
-            enemyOne.enemyDamage -= currentMood;
-            if (enemyOne.enemyDamage < 0)
-                enemyOne.enemyDamage = 0;
-        }
-
-        if (playerWon)
-        {
-           currentMood +=1 ;
-        }
-    }//end
-
-    public class enemyOne()
+    protected void StartMatch()
     {
-
+        ChooseRandomPose();
     }
 
 
-
-// Update is called once per frame
-void Update()
+    protected void ChooseRandomPose()
     {
-        
+        int newPose;
+
+        do
+        {
+            newPose = Random.Range(0, enemyPoses.Length);
+        }
+        while (newPose == currentPoseIndex && enemyPoses.Length > 1);
+
+        currentPoseIndex = newPose;
+        spriteRenderer.sprite = enemyPoses[currentPoseIndex];
     }
+
+
 }
 
 
