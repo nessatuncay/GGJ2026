@@ -5,8 +5,8 @@ public class Player : MonoBehaviour
     public AudienceMood audienceMood;
     public PlayerAnimator playerAnimator;
 
-    private ActType currentEnemyAct;
-    private bool playerTurn = false;
+    public ActType currentEnemyAct;
+    public bool playerTurn = false;
     
 
     public void startPlayerTurn(ActType enemyAct)
@@ -30,6 +30,16 @@ public class Player : MonoBehaviour
         {
             audienceMood.decreaseMood();
         }
+
+        CheckTurnEndCondition();
+    }
+
+    public void OnPlayerTimeLost()
+    {
+        if (!playerTurn) return;
+        playerTurn = false;
+        audienceMood.decreaseMood();
+        CheckTurnEndCondition();
     }
 
     void CheckTurnEndCondition()
