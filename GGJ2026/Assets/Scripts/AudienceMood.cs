@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class AudienceMood : MonoBehaviour
 {
     
-    public int maxMood = 3;
-    public int startMood = 1;
+    public int maxMood = 200;
+    public int startMood = 10;
     public int currentMood;
 
     public Slider moodSlider;
 
-    void GameStart()
+    void Start()
     {
         currentMood = startMood;
         moodSlider.maxValue = maxMood;

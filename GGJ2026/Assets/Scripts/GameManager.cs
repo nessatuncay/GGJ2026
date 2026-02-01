@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public Enemy enemy;
     public Player player;
+    public AudienceMood audienceMood;
 
     public float enemyDelay = 1f;
     public float reactionTime = 2f;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
             {
                 waitingForPlayer = false;
                 player.OnTimeout();
+                audienceMood.decreaseMood();
                 Debug.Log("Player failed");
             }
 
@@ -56,9 +58,16 @@ public class GameManager : MonoBehaviour
         waitingForPlayer = false;
 
         if (act == currentEnemyAct)
+        {
             Debug.Log("Correct!");
+            audienceMood.increaseMood();
+        }
         else
+        {
             Debug.Log("Wrong!");
+            audienceMood.decreaseMood();
+        }
+            
     }
 
     ActType GetRandomAct()
