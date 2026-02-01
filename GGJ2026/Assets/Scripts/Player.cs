@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public AudienceMood audienceMood;
-    public PlayerAnimationController playerAnimator;
+    public PlayerSpriteController spriteController;
     public EnemyController enemy;
     public LevelManager levelManager;
 
@@ -18,12 +18,18 @@ public class Player : MonoBehaviour
         playerTurn = true;
     }
 
+    public void OnEnemyAct(ActType enemyAct)
+    {
+        Debug.Log("Enemy played: " + enemyAct);
+    }
+
+
     public void OnCardChosen(ActType chosenAct)
     {
         if (!playerTurn) return;
         playerTurn = false;
 
-        playerAnimator.PlayActAnimation(chosenAct);
+        spriteController.PlayAct(chosenAct);
 
         if (chosenAct == currentEnemyAct)
         {
@@ -35,6 +41,7 @@ public class Player : MonoBehaviour
         }
 
         CheckTurnEndCondition();
+
     }
 
     public void OnPlayerTimeLost()
@@ -62,6 +69,31 @@ public class Player : MonoBehaviour
             levelManager.Update();
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            OnCardChosen(ActType.Dancing);
+            Debug.Log("D key pressed" );
+        }
+            
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            OnCardChosen(ActType.Singing);
+            Debug.Log("S key pressed" );
+        }
+            
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            OnCardChosen(ActType.Acting);
+            Debug.Log("P key pressed" );
+        }
+            
+    }
+
 
 
 

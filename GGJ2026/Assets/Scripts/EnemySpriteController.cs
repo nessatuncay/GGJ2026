@@ -1,19 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerSpriteController : MonoBehaviour
+public class EnemySpriteController : MonoBehaviour
 {
     public Sprite idleSprite;
 
-    [Header("Dancing Sprites")]
     public Sprite dancingSprite1;
     public Sprite dancingSprite2;
 
-    [Header("Singing Sprites")]
     public Sprite singingSprite1;
     public Sprite singingSprite2;
 
-    [Header("Acting Sprites")]
     public Sprite actingSprite1;
     public Sprite actingSprite2;
 
@@ -39,15 +36,15 @@ public class PlayerSpriteController : MonoBehaviour
         switch (act)
         {
             case ActType.Dancing:
-                yield return StartCoroutine(PlayTwoSprites(dancingSprite1, dancingSprite2));
+                yield return PlayTwoSprites(dancingSprite1, dancingSprite2);
                 break;
 
             case ActType.Singing:
-                yield return StartCoroutine(PlayTwoSprites(singingSprite1, singingSprite2));
+                yield return PlayTwoSprites(singingSprite1, singingSprite2);
                 break;
 
             case ActType.Acting:
-                yield return StartCoroutine(PlayTwoSprites(actingSprite1, actingSprite2));
+                yield return PlayTwoSprites(actingSprite1, actingSprite2);
                 break;
         }
 

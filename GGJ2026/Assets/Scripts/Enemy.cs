@@ -1,82 +1,38 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
-
 {
-
-    //----------------------------------------------------
-    //connect to enum ActType dance and singing and acting
-    public ActType currentEnemyAct;
-
-    //connect to enum MatchState
-    public MatchState EndMatch;
-
-    //connect to class player
+    public EnemySpriteController spriteController;
     public Player player;
 
-    //----------------------------------------------------
+    public float delayBeforeAct = 1f;
 
-
-
-    //each different sprite that will be randomazied 
-
-    //dancing
-    public Sprite dancingSprite;
-
-    //singing
-    public Sprite singingSprite;
-
-    //acting
-    public Sprite actingSprite;
-
-    //Sprite Randerer
-    public SpriteRenderer spriteRenderer;
-
-    //-----------------------------------------------------
-
-
-    public virtual void Start()
+    void Start()
     {
-        StartMatch();
+        StartCoroutine(EnemyTurnLoop());
     }
 
-    public void StartMatch()
+    IEnumerator EnemyTurnLoop()
     {
-        ChooseRandomAct();
-        ApplyActSprite();
-    }
-
-    public void ChooseRandomAct()
-    {
-        currentEnemyAct = (ActType)Random.Range(
-            0,
-            System.Enum.GetValues(typeof(ActType)).Length
-        );
-    }
-
-    public void ApplyActSprite()
-    {
-        switch (currentEnemyAct)
+        while (true)
         {
-            case ActType.Dancing:
-                spriteRenderer.sprite = dancingSprite;
-                break;
+            yield return new WaitForSeconds(delayBeforeAct);
 
-            case ActType.Singing:
-                spriteRenderer.sprite = singingSprite;
-                break;
+            ActType chosenAct = GetRandomAct();
 
-            case ActType.Acting:
-                spriteRenderer.sprite = actingSprite;
-                break;
+            spriteController.PlayAct(chosenAct);
+
+            yield return new WaitForSeconds(1f); // wait for animation
+
+            player.OnEnemyAct(chosenAct);
+
+            yield return new WaitForSeconds(3f); // player reaction window
         }
     }
+
+    ActType GetRandomAct()
+    {
+        return (ActType)Random.Range(0, 3);
+    }
 }
-
-
-
-
-
-
-
