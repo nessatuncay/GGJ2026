@@ -1,11 +1,13 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimationController : MonoBehaviour
 {
     public Animator animator;
 
-    public void PlayerActionAnimator(ActType act)
+    public void PlayActAnimation(ActType act)
     {
         animator.SetTrigger(act.ToString());
     }
+
+    
 }

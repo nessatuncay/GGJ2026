@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public AudienceMood audienceMood;
-    public PlayerAnimator playerAnimator;
+    public PlayerAnimationController playerAnimator;
     public EnemyController enemy;
     public LevelManager levelManager;
 
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         if (!playerTurn) return;
         playerTurn = false;
 
-        playerAnimator.PlayerActionAnimator(chosenAct);
+        playerAnimator.PlayActAnimation(chosenAct);
 
         if (chosenAct == currentEnemyAct)
         {

@@ -13,7 +13,7 @@ public class CardManager : MonoBehaviour
 
     void SetupCards()
     {
-        ActType[] acts = { ActType.Dancing, ActType.Singing, ActType.Posing };
+        ActType[] acts = { ActType.Dancing, ActType.Singing, ActType.Acting };
 
         for (int i = 0; i < cards.Length; i++)
         {
