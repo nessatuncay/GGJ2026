@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public Enemy enemy;
     public Player player;
     public AudienceMood audienceMood;
+    public AudioManager audioManager;
 
     public float enemyDelay = 1f;
     public float reactionTime = 2f;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
 
             currentEnemyAct = GetRandomAct();
             enemy.PlayAct(currentEnemyAct);
+            audioManager.PlayEnemyActSound();
 
             yield return new WaitForSeconds(1f); // enemy sprite duration
 

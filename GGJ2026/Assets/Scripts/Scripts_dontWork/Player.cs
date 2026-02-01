@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     {
         canInput = false;
         spriteController.PlayAct(act);
+        gameManager.audioManager.PlayPlayerActSound();
         gameManager.OnPlayerChoseAct(act);
     }
 
