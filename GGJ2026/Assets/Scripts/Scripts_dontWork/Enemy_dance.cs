@@ -1,5 +1,5 @@
-// using System.Collections.Generic;
-// using UnityEngine;
+/*using System.Collections.Generic;
+using UnityEngine;
 
 // public class Enemy_dance : MonoBehaviour
 // {
@@ -38,6 +38,9 @@
 //         if (audienceMeter <= 0)
 //             matchState = MatchState.PlayerLost;
 //     }
+        if (audienceMeter <= 0)
+            matchState = MatchState.PlayerLost;
+    }*/
 
 
     /*
@@ -113,3 +116,5 @@
     }
     */
 // }
+    
+
