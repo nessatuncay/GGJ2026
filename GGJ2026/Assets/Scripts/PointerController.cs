@@ -1,8 +1,12 @@
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PointerController : MonoBehaviour
 {
-   public Transform pointA; // Reference to the starting point
+
+    public GameObject Bar; 
+    public Transform pointA; // Reference to the starting point
     public Transform pointB; // Reference to the ending point
     public RectTransform safeZone; // Reference to the safe zone RectTransform
     public float moveSpeed = 100f; // Speed of the pointer movement
@@ -13,8 +17,10 @@ public class PointerController : MonoBehaviour
  
     void Start()
     {
+        objectHiding();
         pointerTransform = GetComponent<RectTransform>();
         targetPosition = pointB.position;
+        
     }
  
     void Update()
@@ -35,10 +41,23 @@ public class PointerController : MonoBehaviour
         }
  
         // Check for input
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
+            objectShowing();
             CheckSuccess();
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            objectShowing ();
+            CheckSuccess();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            objectShowing();
+            CheckSuccess();
+        }
+       
+        
     }
  
     void CheckSuccess()
@@ -52,5 +71,16 @@ public class PointerController : MonoBehaviour
         {
             Debug.Log("Fail!");
         }
+    }
+
+
+    void objectHiding()
+    {
+        Bar.SetActive(false);
+    }
+
+    void objectShowing()
+    {
+        Bar.SetActive(true);
     }
 }

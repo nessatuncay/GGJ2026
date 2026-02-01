@@ -1,13 +1,13 @@
-using UnityEngine;
+// using UnityEngine;
 
-public class EnemyOne : Enemy
-{
+// public class EnemyOne : Enemy
+// {
 
-    protected override void Start()
-    {
-        base.Start();
-        Sprite[] enemyPoses;
+//     protected override void Start()
+//     {
+//         base.Start();
+//         Sprite[] enemyPoses;
 
-    }
+//     }
 
-}
+// }

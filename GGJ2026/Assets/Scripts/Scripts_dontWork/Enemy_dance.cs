@@ -1,43 +1,43 @@
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class Enemy_dance : MonoBehaviour
-{
+// public class Enemy_dance : MonoBehaviour
+// {
 
-    public int audienceMeter = 1; // 0–3
-    public MatchState matchState = MatchState.Playing;
+//     public int audienceMeter = 1; // 0ï¿½3
+//     public MatchState matchState = MatchState.Playing;
 
-    public QuickTimeSystem qteSystem;
+//     public QuickTimeSystem qteSystem;
 
-    void Start()
-    {
-        StartCoroutine(EnemyRhythmLoop());
-    }
+//     void Start()
+//     {
+//         StartCoroutine(EnemyRhythmLoop());
+//     }
 
-    System.Collections.IEnumerator EnemyRhythmLoop()
-    {
-        while (matchState == MatchState.Playing)
-        {
-            qteSystem.SpawnQTE();
-            yield return new WaitForSeconds(1.2f); // rhythm speed
-        }
-    }
+//     System.Collections.IEnumerator EnemyRhythmLoop()
+//     {
+//         while (matchState == MatchState.Playing)
+//         {
+//             qteSystem.SpawnQTE();
+//             yield return new WaitForSeconds(1.2f); // rhythm speed
+//         }
+//     }
 
-    public void OnQTEResult(QTEResult result)
-    {
-        if (result == QTEResult.Perfect)
-            audienceMeter++;
-        else if (result == QTEResult.Miss)
-            audienceMeter--;
+//     public void OnQTEResult(QTEResult result)
+//     {
+//         if (result == QTEResult.Perfect)
+//             audienceMeter++;
+//         else if (result == QTEResult.Miss)
+//             audienceMeter--;
 
-        audienceMeter = Mathf.Clamp(audienceMeter, 0, 3);
+//         audienceMeter = Mathf.Clamp(audienceMeter, 0, 3);
 
-        if (audienceMeter >= 3)
-            matchState = MatchState.PlayerWon;
+//         if (audienceMeter >= 3)
+//             matchState = MatchState.PlayerWon;
 
-        if (audienceMeter <= 0)
-            matchState = MatchState.PlayerLost;
-    }
+//         if (audienceMeter <= 0)
+//             matchState = MatchState.PlayerLost;
+//     }
 
 
     /*
@@ -112,4 +112,4 @@ public class Enemy_dance : MonoBehaviour
         }
     }
     */
-}
+// }
