@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class EnemyTwo : Enemy
 {
@@ -10,4 +10,4 @@ public class EnemyTwo : Enemy
 
     }
 
-}
+}*/
