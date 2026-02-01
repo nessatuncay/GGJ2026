@@ -6,7 +6,7 @@ public class MenuSelecter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    public void playgame()
     {
-        SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadScene("MainMenu_Test"); 
     }
     public void quit()
     {
