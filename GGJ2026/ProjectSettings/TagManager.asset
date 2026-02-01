@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -38,6 +38,35 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG_Far
+    uniqueID: 3760115311
+    locked: 0
+  - name: BG_Mid
+    uniqueID: 1992627103
+    locked: 0
+  - name: BG_Near
+    uniqueID: 1593249263
+    locked: 0
+  - name: MG_Far
+    uniqueID: 976568579
+    locked: 0
+  - name: MG_Mid
+    uniqueID: 683687475
+    locked: 0
+  - name: MG_Near
+    uniqueID: 1159619381
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FG_Far
+    uniqueID: 1529566519
+    locked: 0
+  - name: FG_Mid
+    uniqueID: 1365558757
+    locked: 0
+  - name: FG_Near
+    uniqueID: 4203499367
+    locked: 0
+  m_RenderingLayers:
+  - Default
