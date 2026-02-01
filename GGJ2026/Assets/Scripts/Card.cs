@@ -1,27 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-[System.Serializable]
-public class Card
+public class Card : MonoBehaviour
 {
-     public int id; 
-      public string cardName; 
-      public string cardDescription;
-      public string cardType;
+    public ActType actType;
+    private GameManager gameManager;
 
-        //public int cardDamage; added this in case we want to switch things up with the card system in the future
+    public void Setup(GameManager manager, ActType act)
+    {
+        gameManager = manager;
+        actType = act;
+    }
 
-
-        public Card ()
-        {
-            
-        }
-
-
-        public Card(int Id, string CardName, string CardDescription, string CardType)
-        {
-            id = Id;
-            cardName = CardName;
-            cardDescription = CardDescription;
-            cardType = CardType;
-        }
+    public void OnClick()
+    {
+        gameManager.OnPlayerChoseCard(actType);
+    }
 }

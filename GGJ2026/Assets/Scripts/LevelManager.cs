@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public int currentLevel = 1;
 
     public bool transitioning = false;
+    public bool IsTransitioning => transitioning;
 
     public AudienceMood audienceMood;
 

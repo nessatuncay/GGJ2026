@@ -5,15 +5,16 @@ public class Player : MonoBehaviour
 {
     public AudienceMood audienceMood;
     public PlayerAnimator playerAnimator;
-    public Enemy enemy;
+    public EnemyController enemy;
     public LevelManager levelManager;
 
     public bool playerTurn = false;
-    
+    public ActType currentEnemyAct;
 
-    public void StartPlayerTurn(ActType enemyAct)
+
+    public void OnEnemyActFinished(ActType enemyAct)
     {
-        enemy.currentEnemyAct = enemyAct;
+        currentEnemyAct = enemyAct;
         playerTurn = true;
     }
 
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
 
         playerAnimator.PlayerActionAnimator(chosenAct);
 
-        if (chosenAct == enemy.currentEnemyAct)
+        if (chosenAct == currentEnemyAct)
         {
             audienceMood.increaseMood();
         }
