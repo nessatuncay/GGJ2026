@@ -1,10 +1,14 @@
 using UnityEngine;
 
+public enum QTEResult
+{
+    Perfect,
+    Good,
+    Miss
+}
 
 public enum MatchState
    {
-      StartMatch,
-      EndMatch,
       Playing,
       PlayerWon,
       PlayerLost
