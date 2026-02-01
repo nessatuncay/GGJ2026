@@ -4,6 +4,43 @@ using UnityEngine;
 public class Enemy_dance : MonoBehaviour
 {
 
+    public int audienceMeter = 1; // 0–3
+    public MatchState matchState = MatchState.Playing;
+
+    public QuickTimeSystem qteSystem;
+
+    void Start()
+    {
+        StartCoroutine(EnemyRhythmLoop());
+    }
+
+    System.Collections.IEnumerator EnemyRhythmLoop()
+    {
+        while (matchState == MatchState.Playing)
+        {
+            qteSystem.SpawnQTE();
+            yield return new WaitForSeconds(1.2f); // rhythm speed
+        }
+    }
+
+    public void OnQTEResult(QTEResult result)
+    {
+        if (result == QTEResult.Perfect)
+            audienceMeter++;
+        else if (result == QTEResult.Miss)
+            audienceMeter--;
+
+        audienceMeter = Mathf.Clamp(audienceMeter, 0, 3);
+
+        if (audienceMeter >= 3)
+            matchState = MatchState.PlayerWon;
+
+        if (audienceMeter <= 0)
+            matchState = MatchState.PlayerLost;
+    }
+
+
+    /*
     //----------------------------------------------------
     //connect to enum ActType dance and singing and acting
     public ActType currentAct;
@@ -37,7 +74,7 @@ public class Enemy_dance : MonoBehaviour
     //-----------------------------------------------------
 
 
-    public virtual void Start()
+    //public virtual void Start()
     {
         StartMatch();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -74,5 +111,5 @@ public class Enemy_dance : MonoBehaviour
                 break;
         }
     }
-
+    */
 }
