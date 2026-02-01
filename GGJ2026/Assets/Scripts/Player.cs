@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
             SubmitChoice(ActType.Singing);
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.A))
             SubmitChoice(ActType.Acting);
     }
 
