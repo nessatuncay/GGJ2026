@@ -1,61 +1,46 @@
-/*using UnityEngine;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public AudienceMood audienceMood;
-    public PlayerAnimator playerAnimator;
+    public PlayerSpriteController spriteController;
 
-    public ActType currentEnemyAct;
-    public bool playerTurn = false;
-    
+    private bool canInput = false;
+    private GameManager gameManager;
 
-    public void StartPlayerTurn(ActType enemyAct)
+    void Start()
     {
-        currentEnemyAct = enemyAct;
-        playerTurn = true;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void OnCardChosen(ActType chosenAct)
+    public void StartReactionWindow()
     {
-        if (!playerTurn) return;
-        playerTurn = false;
-
-        playerAnimator.PlayerActionAnimator(chosenAct);
-
-        if (chosenAct == currentEnemyAct)
-        {
-            audienceMood.increaseMood();
-        }
-        else
-        {
-            audienceMood.decreaseMood();
-        }
-
-        CheckTurnEndCondition();
+        canInput = true;
     }
 
-    public void OnPlayerTimeLost()
+    void Update()
     {
-        if (!playerTurn) return;
-        playerTurn = false;
-        audienceMood.decreaseMood();
-        CheckTurnEndCondition();
+        if (!canInput) return;
+
+        if (Input.GetKeyDown(KeyCode.D))
+            SubmitChoice(ActType.Dancing);
+
+        if (Input.GetKeyDown(KeyCode.S))
+            SubmitChoice(ActType.Singing);
+
+        if (Input.GetKeyDown(KeyCode.P))
+            SubmitChoice(ActType.Acting);
     }
 
-    void CheckTurnEndCondition()
+    void SubmitChoice(ActType act)
     {
-        if (audienceMood.currentMood == 0)
-        {
-            Debug.Log("LOSE");
-            Time.timeScale = 0f;
-        }
-        else if (audienceMood.currentMood == 3)
-        {
-            Debug.Log("WIN");
-            Time.timeScale = 0f;
-        }
+        canInput = false;
+        spriteController.PlayAct(act);
+        gameManager.OnPlayerChoseAct(act);
     }
 
-
-
-}*/
+    public void OnTimeout()
+    {
+        canInput = false;
+        Debug.Log("Player missed input");
+    }
+}
