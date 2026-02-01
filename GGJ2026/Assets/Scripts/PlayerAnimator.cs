@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
@@ -9,3 +9,4 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetTrigger(act.ToString());
     }
 }
+*/

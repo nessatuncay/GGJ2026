@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_dance : MonoBehaviour
@@ -37,7 +37,7 @@ public class Enemy_dance : MonoBehaviour
 
         if (audienceMeter <= 0)
             matchState = MatchState.PlayerLost;
-    }
+    }*/
 
 
     /*
@@ -111,5 +111,5 @@ public class Enemy_dance : MonoBehaviour
                 break;
         }
     }
-    */
-}
+    
+}*/
