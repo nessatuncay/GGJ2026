@@ -1,10 +1,19 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TimedEvents : MonoBehaviour
 {
-    // Variable to track time elapsed on a given lvl
-    private float levelTimer;
+    // Variables to track time elapsed
+    public float levelTimer, roundTimer, flickerTimer, intermissionTimer;
+
+    // Can be used as a multiplier of the passage of time being incremented to flickerTime
+    public float flickerRate = 1.0f;
+
+    public bool isPaused = false;
+
+    Player player;
+    Enemy enemy;
     // Used to fire animations in the scene, if needed
     Animator anim;
     
@@ -15,18 +24,43 @@ public class TimedEvents : MonoBehaviour
         levelTimer = 0;
         // Get an animator component from somewhere
         anim = FindAnyObjectByType<Animator>();
+        enemy = FindAnyObjectByType<Enemy>();
+        player = FindAnyObjectByType<Player>();
     }
 
     void FixedUpdate()
     {
-        IncrementLevelTimer();
+        if(!isPaused)
+        {
+            IncrementTimers();
+        }
     }
 
-    // Function to update levelTimer
-    private void IncrementLevelTimer()
+    void Update()
     {
-        levelTimer += Time.deltaTime;
+        
     }
 
-    
+    // Function to increment all timers by time since last increment
+    private void IncrementTimers()
+    {
+        flickerTimer += Time.deltaTime * flickerRate;
+        levelTimer += Time.deltaTime;
+        roundTimer += Time.deltaTime;
+        intermissionTimer += Time.deltaTime;
+    }
+    public void StartRound()
+    {
+        roundTimer = 0;
+        enemy.ChooseRandomAct();
+    }
+    public void FlickerSpotlight()
+    {
+        // play the light-flickering animation
+        anim.Play("Flicker");
+    }
+    public void EndRound()
+    {
+        
+    }    
 }
