@@ -14,6 +14,8 @@ public class EnemySpriteController : MonoBehaviour
     public Sprite actingSprite1;
     public Sprite actingSprite2;
 
+    public Sprite defeatedSprite;
+
     private SpriteRenderer spriteRenderer;
     private Coroutine currentRoutine;
 

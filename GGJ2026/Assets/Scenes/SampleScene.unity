@@ -209,7 +209,7 @@ SpriteRenderer:
   m_Size: {x: 1.87, y: 2.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!114 &71210474
 MonoBehaviour:
@@ -223,13 +223,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ee54ab8b314f74fb84cf9954f65805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpriteController
-  idleSprite: {fileID: 7854894296752134884, guid: 8b6414867eab5b74d8cad496f1073f9b, type: 3}
-  dancingSprite1: {fileID: 5727063632543822723, guid: 6f963dc97ff93c14987916091b573a12, type: 3}
-  dancingSprite2: {fileID: 3982410360215736130, guid: 548c53d0c68cd744fa80a962f22ff5b5, type: 3}
-  singingSprite1: {fileID: 8573019826534903040, guid: 570d28dd9e19e9d43ac4d55a7b62d744, type: 3}
-  singingSprite2: {fileID: -66165359052556757, guid: 029dfab5b79a49240851cd15fefd2c68, type: 3}
-  actingSprite1: {fileID: -2064283899572703, guid: dfce37293f4825744bcb579c3444c899, type: 3}
-  actingSprite2: {fileID: -632472451826114567, guid: 96d26ad7a8fc85f44ae6228837a7e2db, type: 3}
+  idleSprite: {fileID: 21300000, guid: 8b6414867eab5b74d8cad496f1073f9b, type: 3}
+  dancingSprite1: {fileID: 21300000, guid: 6f963dc97ff93c14987916091b573a12, type: 3}
+  dancingSprite2: {fileID: 21300000, guid: 548c53d0c68cd744fa80a962f22ff5b5, type: 3}
+  singingSprite1: {fileID: 21300000, guid: 570d28dd9e19e9d43ac4d55a7b62d744, type: 3}
+  singingSprite2: {fileID: 21300000, guid: 029dfab5b79a49240851cd15fefd2c68, type: 3}
+  actingSprite1: {fileID: 21300000, guid: dfce37293f4825744bcb579c3444c899, type: 3}
+  actingSprite2: {fileID: 21300000, guid: 96d26ad7a8fc85f44ae6228837a7e2db, type: 3}
+  defeatedSprite: {fileID: 21300000, guid: e48fecc53f45dcc43a501a056cb15e1b, type: 3}
 --- !u!1 &77859952
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 77859952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 4.6, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -275,7 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c644746513be46e40acdae17813b51af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  spriteController: {fileID: 71210474}
+  currentAct: 0
+  EndMatch: 0
+  player: {fileID: 1949788037}
+  dancingSprite: {fileID: 21300000, guid: 548c53d0c68cd744fa80a962f22ff5b5, type: 3}
+  singingSprite: {fileID: 21300000, guid: 029dfab5b79a49240851cd15fefd2c68, type: 3}
+  actingSprite: {fileID: 21300000, guid: 96d26ad7a8fc85f44ae6228837a7e2db, type: 3}
+  spriteRenderer: {fileID: 71210473}
 --- !u!1001 &417034413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,17 +295,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4798390954882839596, guid: aac566a745623d745ab8dc45cfbd9eb2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a3be9f140e7ec6438f02ff3904af611, type: 3}
     - target: {fileID: 5296108284698894224, guid: aac566a745623d745ab8dc45cfbd9eb2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5296108284698894224, guid: aac566a745623d745ab8dc45cfbd9eb2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5296108284698894224, guid: aac566a745623d745ab8dc45cfbd9eb2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5296108284698894224, guid: aac566a745623d745ab8dc45cfbd9eb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1154,7 +1165,7 @@ Transform:
   m_GameObject: {fileID: 1949788035}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: -0.93, z: 0}
+  m_LocalPosition: {x: -4.28, y: -0.38, z: 0}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1173,7 +1184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b54e5f9934bdf4da476759f7825301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  spriteController: {fileID: 788339475}
+  audienceMood: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  currentEnemyAct: 0
+  playerTurn: 0
 --- !u!1 &1985583965
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,15 +1,21 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuSelecter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   public void playgame()
+    
+    private void OnAwake()
     {
-        SceneManager.LoadScene("MainMenu_Test"); 
+        Debug.Log("Main Menu Selector Awake and Enabled.");
     }
-    public void quit()
+    public void Playgame()
     {
-        Application.Quit();
+        // Play();
     }
+    public void Quitgame()
+    {
+        // Quit();
+    }
+
+    
 }
+
